@@ -3,12 +3,16 @@ import Alert from 'react-s-alert'
 
 import Map from './views/map'
 import Navbar from './views/navbar'
+import LocationList from './views/location-list'
 
 const App = () =>
   <div className='app'>
     <div className='clearfix'>
       <Navbar />
-      <Map />
+      <div className='row'>
+        <LocationList />
+        <Map />
+      </div>
     </div>
 
     { /* app wide alerts */ }

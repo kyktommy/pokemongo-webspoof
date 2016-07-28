@@ -79,7 +79,7 @@ class Map extends Component {
     const [ latitude, longitude ] = userLocation
 
     return (
-      <div className='google-map-container'>
+      <div className='col-xs-9 google-map-container'>
         { /* only display google map when user geolocated */ }
         { (latitude && longitude) ?
           <GoogleMap

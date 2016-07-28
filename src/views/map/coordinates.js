@@ -1,12 +1,16 @@
 import React from 'react'
 import { action } from 'mobx'
-import { observer } from 'mobx-react'
+import { observer, observable } from 'mobx-react'
 
 import userLocation from '../../models/user-location.js'
+import locations from '../../models/locations.js'
 
 const handleChange = (idx) => action(({ target: { value } }) => {
+  value = value.trim() === '' ? '0' : value
   userLocation[idx] = parseFloat(value)
 })
+
+let name = ''
 
 const Coordinates = observer(() =>
   <div className='clearfix coordinates'>
@@ -26,6 +30,19 @@ const Coordinates = observer(() =>
         </div>
       </div>
     ) }
+    <input
+      type='text'
+      className='form-control'
+      placeholder='name'
+      className='pull-xs-left'
+      onChange={({ target: { value }}) => name = value}
+    />
+    <button 
+      className='btn btn-sm btn-default pull-xs-left'
+      onClick={ () => locations.add(name, userLocation) }
+    >
+      Save
+    </button>
   </div>
 )
 

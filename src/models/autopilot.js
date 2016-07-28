@@ -70,7 +70,7 @@ class Autopilot {
     })
   })
 
-  calculateIntermediateSteps = (foundPath) =>
+  calculateIntermediateSteps = (foundPath) => 
     foundPath.reduce(
       (result, { lat: endLat, lng: endLng }, idx) => {
         if (idx > 0) {
